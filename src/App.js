@@ -1,25 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import Login from "./Login.jsx"
+import WebcamCapture from './WebcamCapture';
+import Dashboard from './dashboard';
+import Friend from './Friend';
+import SecondDashboard from './SecondDashboard';
+import { Navigate } from 'react-router-dom';
+import {BrowserRouter,Routes, Route} from 'react-router-dom'
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+    <Route path="/" element={<Login />}></Route>
+    <Route path="/friend" element={<Friend />}></Route>
+    <Route path="/cam" element={<WebcamCapture />}></Route>
+    <Route path="/dash" element={<Dashboard />}></Route>
+    <Route path="/next" element={<SecondDashboard />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
+  
 }
 
 export default App;
